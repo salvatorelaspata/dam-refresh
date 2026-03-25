@@ -1,0 +1,102 @@
+/* popup.css */
+
+body {
+  width: 250px;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  transition: background-color 0.3s ease; /* Transizione morbida del colore */
+}
+
+/* Stato Attivo: Background Verde Chiaro */
+body.active {
+  background-color: #d4edda;
+}
+
+.wrapper {
+  padding: 15px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #0056b3;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box; /* Importante per il padding */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.status-box {
+  background-color: #e2e3e5;
+  padding: 8px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Colore testo stato quando attivo */
+body.active .status-box {
+  background-color: #c3e6cb;
+  color: #155724;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btn-start {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-start:hover {
+  background-color: #218838;
+}
+
+.btn-stop {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-stop:hover {
+  background-color: #c82333;
+}
+
+/* Stile per pulsanti disabilitati */
+button:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

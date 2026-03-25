@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body id="body-container">
+  <div class="wrapper">
+    <h2>Tab Refresher</h2>
+    
+    <div class="input-group">
+      <label for="seconds">Secondi tra i refresh:</label>
+      <input type="number" id="seconds" value="30" min="1">
+    </div>
+
+    <div class="status-box" id="status-text">Stato: Disattivo</div>
+
+    <div class="button-group">
+      <button id="start" class="btn-start">Avvia</button>
+      <button id="stop" class="btn-stop" disabled>Stop</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
