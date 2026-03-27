@@ -3,10 +3,18 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name.startsWith("refresh_")) {
     const tabId = parseInt(alarm.name.split("_")[1]);
 
-    chrome.tabs.reload(tabId).catch(() => {
-      // Se la scheda è stata chiusa, puliamo l'allarme e lo storage
-      chrome.alarms.clear(alarm.name);
-      chrome.storage.local.remove(`tab_${tabId}`);
-    });
+    // Verifica che la scheda esista ancora, poi ricarica.
+    // Usare le Promise mantiene attivo il service worker durante l'operazione.
+    chrome.tabs.get(tabId)
+      .then(() => {
+        // La scheda esiste: ricarica. Non restituiamo questa Promise
+        // così eventuali errori transitori del reload non cancellano l'allarme.
+        chrome.tabs.reload(tabId);
+      })
+      .catch(() => {
+        // chrome.tabs.get ha fallito: la scheda è stata chiusa
+        chrome.alarms.clear(alarm.name);
+        chrome.storage.local.remove(`tab_${tabId}`);
+      });
   }
 });
